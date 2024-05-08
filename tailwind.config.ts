@@ -45,5 +45,9 @@ export default {
       },
     },
   },
-  plugins: [typographyPlugin, headlessuiPlugin, multyTheme({themes: colorThemes})],
+  plugins: [
+    typographyPlugin,
+    headlessuiPlugin,
+    multyTheme({ themes: colorThemes }),
+  ],
 } satisfies Config
