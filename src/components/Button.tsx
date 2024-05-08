@@ -16,14 +16,14 @@ function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 const variantStyles = {
   primary:
-    'rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-emerald-400/10 dark:text-emerald-400 dark:ring-1 dark:ring-inset dark:ring-emerald-400/20 dark:hover:bg-emerald-400/10 dark:hover:text-emerald-300 dark:hover:ring-emerald-300',
+    'rounded-full bg-primary-900 py-1 px-3 text-white hover:bg-primary-700 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-1 dark:ring-inset dark:ring-primary-400/20 dark:hover:bg-primary-400/10 dark:hover:text-primary-300 dark:hover:ring-primary-300',
   secondary:
-    'rounded-full bg-zinc-100 py-1 px-3 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800/40 dark:text-zinc-400 dark:ring-1 dark:ring-inset dark:ring-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-300',
+    'rounded-full bg-primary-100 py-1 px-3 text-primary-900 hover:bg-primary-200 dark:bg-secondary-800/40 dark:text-secondary-400 dark:ring-1 dark:ring-inset dark:ring-secondary-800 dark:hover:bg-secondary-800 dark:hover:text-secondary-300',
   filled:
-    'rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-emerald-500 dark:text-white dark:hover:bg-emerald-400',
+    'rounded-full bg-primary-900 py-1 px-3 text-white hover:bg-primary-700 dark:bg-secondary-500 dark:text-white dark:hover:bg-secondary-400',
   outline:
-    'rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white',
-  text: 'text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-500',
+    'rounded-full py-1 px-3 text-primary-700 ring-1 ring-inset ring-primary-900/10 hover:bg-primary-900/2.5 hover:text-primary-900 dark:text-secondary-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white',
+  text: 'text-secondary-500 hover:text-secondary-600 dark:text-secondary-400 dark:hover:text-secondary-500',
 }
 
 type ButtonProps = {
