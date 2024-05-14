@@ -1,4 +1,5 @@
-import { Colorpicker, ColorpickerProps } from "lib/Colorpicker/Colorpicker"
+"use client"
+import { Colorpicker, ColorpickerProps } from "components/Colorpicker/Colorpicker"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormColorpicker = <T extends FieldValues>(

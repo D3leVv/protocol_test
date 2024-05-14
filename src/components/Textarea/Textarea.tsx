@@ -1,8 +1,9 @@
+"use client"
 import classNames from "classnames"
 
-import { FieldError } from "lib/Form/Form"
-import { Label } from "lib/Label/Label"
-import { Tooltip } from "lib/Tooltip/Tooltip"
+import { FieldError } from "components/Form/Form"
+import { Label } from "components/Label/Label"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { forwardRef, TextareaHTMLAttributes } from "react"
 import { containerClasses } from "utils"
 
@@ -58,7 +59,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             id={id}
             ref={ref}
             className={classNames(
-              "w-full rounded-md border border-secondary-100 bg-background py-1.5 text-foreground outline-none  placeholder:text-body2/regular focus:ring-primary-500",
+              "placeholder:text-body2/regular w-full rounded-md border border-secondary-100 bg-background py-1.5 text-foreground  outline-none focus:ring-primary-500",
               {
                 "border-red-500 focus:!border-red-500   focus:ring-red-500": error,
                 "border-green-500 focus:!border-green-500": success,

@@ -1,5 +1,6 @@
+"use client"
 import classNames from "classnames"
-import { Modal } from "lib/Modal/Modal"
+import { Modal } from "components/Modal/Modal"
 import React from "react"
 import { useSliderContext } from "./context"
 

@@ -1,15 +1,17 @@
-"use client"
+'use client'
 
-import { Row } from "@tanstack/react-table"
+import { Row } from '@tanstack/react-table'
 
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
-import { Menu } from "lib/Menu/Menu"
+import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
+import { Menu } from 'components/Menu/Menu'
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
 }
 
-export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
+export function DataTableRowActions<TData>({
+  row,
+}: DataTableRowActionsProps<TData>) {
   console.log(row)
   return (
     <Menu>

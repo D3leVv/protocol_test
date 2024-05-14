@@ -1,10 +1,9 @@
-import { InputField, InputFieldProps } from "lib/InputField/InputField"
-import { useFormattedMessage } from "lib/Translate/FormattedMessage"
+"use client"
+import { InputField, InputFieldProps } from "components/InputField/InputField"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormInputField = <T extends FieldValues>(props: UseControllerProps<T> & InputFieldProps) => {
   const { rules, name, control, defaultValue, shouldUnregister, ...rest } = props
-  const { formatMessage } = useFormattedMessage()
   const {
     field: { ref, onChange, onBlur, value },
     fieldState: { error },
@@ -12,7 +11,11 @@ export const FormInputField = <T extends FieldValues>(props: UseControllerProps<
     name,
     control,
     rules:
-      !rules && rest.required ? { required: formatMessage({ id: "VALIDATION.REQUIRED", values: { name } }) } : rules,
+      !rules && rest.required
+        ? {
+            required: `${name} is required`,
+          }
+        : rules,
     defaultValue,
   })
 

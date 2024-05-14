@@ -1,5 +1,6 @@
+"use client"
 import classNames from "classnames"
-import { Checkbox, CheckboxProps } from "lib/Checkbox/Checkbox"
+import { Checkbox, CheckboxProps } from "components/Checkbox/Checkbox"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 import { FieldError } from "../../Form"
 

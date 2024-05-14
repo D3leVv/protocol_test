@@ -1,5 +1,6 @@
-import { Dropdown } from "lib/Dropdown/Dropdown"
-import { DropdownProps } from "lib/Dropdown/types"
+"use client"
+import { Dropdown } from "components/Dropdown/Dropdown"
+import { DropdownProps } from "components/Dropdown/types"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormDropdown = <T extends FieldValues, V, K extends boolean>(
@@ -15,5 +16,5 @@ export const FormDropdown = <T extends FieldValues, V, K extends boolean>(
     defaultValue,
     shouldUnregister,
   })
-  return <Dropdown multiple={multiple as any} onChange={onChange} value={value} {...rest} />
+  return <Dropdown multiple={multiple} onChange={onChange} value={value} {...rest} />
 }

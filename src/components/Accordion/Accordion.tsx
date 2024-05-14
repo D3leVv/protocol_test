@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import { AccordionButton } from "./AccordionButton"
-import { AccordionItem } from "./AccordionItem"
-import { AccordionPanel } from "./AccordionPanel"
-import { AccordionContext } from "./context"
+'use client'
+import React, { useState } from 'react'
+import { AccordionButton } from './AccordionButton'
+import { AccordionItem } from './AccordionItem'
+import { AccordionPanel } from './AccordionPanel'
+import { AccordionContext } from './context'
 
 interface Props {
   allowMultiple?: boolean
@@ -16,7 +17,11 @@ export const Accordion = ({ allowMultiple, children, defaultOpen }: Props) => {
 
   const toggleIndex = (index: number) => {
     if (allowMultiple) {
-      setOpenIndexes((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
+      setOpenIndexes((prev) =>
+        prev.includes(index)
+          ? prev.filter((i) => i !== index)
+          : [...prev, index],
+      )
     } else {
       setOpenIndexes(([prevIndex]) => (prevIndex === index ? [] : [index]))
     }

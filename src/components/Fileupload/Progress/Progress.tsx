@@ -1,5 +1,6 @@
+"use client"
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import { Progressbar } from "lib/Progressbar/Progressbar"
+import { Progressbar } from "components/Progressbar/Progressbar"
 
 export interface ProgressProps {
   tooltipText?: string
@@ -20,7 +21,7 @@ export const Progress = (props: ProgressProps) => {
   return (
     <div
       data-testid={id}
-      className="flex flex-col gap-1 rounded-md border-2 border-dashed border-secondary-100 p-4 text-body3/regular text-foreground "
+      className="text-body3/regular flex flex-col gap-1 rounded-md border-2 border-dashed border-secondary-100 p-4 text-foreground "
     >
       <div className="mb-1 flex w-full items-center justify-between">
         <p className="">{props.fileName}</p>

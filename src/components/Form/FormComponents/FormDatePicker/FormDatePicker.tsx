@@ -1,4 +1,5 @@
-import { DatePicker, DatePickerProps } from "lib/DatePicker/DatePicker"
+"use client"
+import { DatePicker, DatePickerProps } from "components/DatePicker/DatePicker"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormDatePicker = <T extends FieldValues>(

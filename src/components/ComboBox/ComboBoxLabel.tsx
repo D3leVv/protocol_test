@@ -1,5 +1,5 @@
 import { Combobox } from "@headlessui/react"
-import { Label as CustomLabel } from "lib/Label/Label"
+import { Label as CustomLabel } from "components/Label/Label"
 import { ReactNode } from "react"
 
 interface Props {

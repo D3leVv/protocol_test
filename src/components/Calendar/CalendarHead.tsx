@@ -1,3 +1,4 @@
+"use client"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import { Variants, motion } from "framer-motion"
 
@@ -59,7 +60,7 @@ export const CalendarHead = ({
           <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
         </button>
       </div>
-      <div className="grid grid-cols-7 gap-x-0.5 text-center text-body2/medium leading-6 text-secondary-500">
+      <div className="text-body2/medium grid grid-cols-7 gap-x-0.5 text-center leading-6 text-secondary-500">
         {Object.values(WeekDayEnum).map((day, index) => (
           <p key={index} className="p-1">
             {day}

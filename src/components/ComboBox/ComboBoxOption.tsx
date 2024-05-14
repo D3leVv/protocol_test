@@ -1,4 +1,5 @@
-import { Combobox } from "@headlessui/react"
+"use client"
+import { ComboboxOption } from "@headlessui/react"
 import classNames from "classnames"
 import React, { ReactNode } from "react"
 import { addPropsToChildren } from "utils"
@@ -25,9 +26,9 @@ interface Props<T> {
 }
 
 export const ComboBoxOption = <T,>({ children, ...props }: Props<T>) => (
-  <Combobox.Option
+  <ComboboxOption
     {...props}
-    className={({ active, selected, disabled }) =>
+    className={({ selected, disabled, focus: active }) =>
       classNames(
         active ? "bg-foreground/10" : "",
         selected ? "cursor-default bg-foreground/10" : "",
@@ -55,5 +56,5 @@ export const ComboBoxOption = <T,>({ children, ...props }: Props<T>) => (
             })}
       </>
     )}
-  </Combobox.Option>
+  </ComboboxOption>
 )

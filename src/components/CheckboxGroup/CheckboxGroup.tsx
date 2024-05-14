@@ -1,6 +1,7 @@
+"use client"
 import classNames from "classnames"
-import { Checkbox, CheckboxProps } from "lib/Checkbox/Checkbox"
-import { FieldError } from "lib/Form/Form"
+import { Checkbox, CheckboxProps } from "components/Checkbox/Checkbox"
+import { FieldError } from "components/Form/Form"
 import { Ref, forwardRef } from "react"
 
 export type CheckboxGroupProps = {

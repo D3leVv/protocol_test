@@ -1,3 +1,4 @@
+"use client"
 import { ReactNode, Ref, forwardRef } from "react"
 
 type KanbanItemsProps = {

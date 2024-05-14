@@ -1,14 +1,15 @@
-import { forwardRef } from "react"
-import { Link, LinkProps } from "react-router-dom"
-export type CustomLinkProps = {
-  href: string
+import Link, { LinkProps } from 'next/link'
+import { forwardRef } from 'react'
+export type CustomLinkProps = LinkProps & {
   children: React.ReactNode
-  className?: string
-} & Omit<LinkProps, "to">
+  id?: string
+}
 
-export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({ children, href, ...rest }, ref) => (
-  <Link to={href} {...rest} ref={ref}>
-    {children}
-  </Link>
-))
-CustomLink.displayName = "CustomLink"
+export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
+  ({ children, href, ...rest }, ref) => (
+    <Link href={href} {...rest} ref={ref}>
+      {children}
+    </Link>
+  ),
+)
+CustomLink.displayName = 'CustomLink'

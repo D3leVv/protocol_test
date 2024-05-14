@@ -1,19 +1,24 @@
-import classNames from "classnames"
-import DOMPurify from "dompurify"
+import clsx from "clsx"
 
-interface Props {
-  text: string | undefined
+export function Prose<T extends React.ElementType = "div">({
+  as,
+  className,
+  ...props
+}: Omit<React.ComponentPropsWithoutRef<T>, "as" | "className"> & {
+  as?: T
   className?: string
-}
+}) {
+  let Component = as ?? "div"
 
-export const Prose = ({ text = "", className }: Props) => (
-  <div
-    className={classNames(
-      className,
-      "prose prose-p:text-[var(--secondary-900)] prose-p:text-body2/regular prose-h4:text-body2/medium prose-a:text-primary-500 prose-a:text-link1/regular prose-span:text-body2/regular prose-li:text-body2/regular prose-img:w-[84px] prose-img:h-30 min-w-full marker:text-[var(--secondary-500)]"
-    )}
-    dangerouslySetInnerHTML={{
-      __html: DOMPurify.sanitize(text),
-    }}
-  />
-)
+  return (
+    <Component
+      className={clsx(
+        className,
+        "prose dark:prose-invert",
+        // `html :where(& > *)` is used to select all direct children without an increase in specificity like you'd get from just `& > *`
+        "[html_:where(&>*)]:mx-auto [html_:where(&>*)]:max-w-2xl [html_:where(&>*)]:lg:mx-[calc(50%-min(50%,theme(maxWidth.lg)))] [html_:where(&>*)]:lg:max-w-3xl"
+      )}
+      {...props}
+    />
+  )
+}

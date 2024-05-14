@@ -1,9 +1,9 @@
-import { notification } from "hooks/alert"
-import { Button } from "lib/Button/Button"
-import { Form, useForm } from "lib/Form/Form"
-import { Paper } from "lib/Paper/Paper"
-import { ReactNode } from "react"
-import { addPropsToChildren } from "utils"
+import { notification } from 'hooks/alert'
+import { Button } from 'components/Button/Button'
+import { Form, useForm } from 'components/Form/Form'
+import { Paper } from 'components/Paper/Paper'
+import { ReactNode } from 'react'
+import { addPropsToChildren } from 'utils'
 
 export const FormTestWrapper = ({ children }: { children: ReactNode }) => {
   const form = useForm({ defaultValues: { test: [] } })

@@ -1,6 +1,7 @@
-import FallowCursor from "lib/FallowCursor/FallowCursor.tsx"
+"use client"
+import FallowCursor from "components/FallowCursor/FallowCursor"
+import { useAreaSelection } from "components/Selection/useAreaSelection"
 import { createContext, forwardRef, useRef } from "react"
-import { useAreaSelection } from "./useAreaSelection.tsx"
 
 const SelectionContext = createContext<DOMRect | null>(null)
 
@@ -17,9 +18,10 @@ const Container = forwardRef<HTMLDivElement>((_, ref) => {
 type Props = {
   onMouseEnd: (rect: DOMRect) => void
   onCancel: () => void
+  tooltipText?: string
 }
 
-export default function Selection({ onMouseEnd, onCancel }: Props) {
+export default function Selection({ onMouseEnd, onCancel, tooltipText }: Props) {
   const selectContainerRef = useRef<HTMLDivElement | null>(null)
   const selection = useAreaSelection({
     onMouseEnd,
@@ -29,11 +31,13 @@ export default function Selection({ onMouseEnd, onCancel }: Props) {
   return (
     <SelectionContext.Provider value={selection}>
       <Container ref={selectContainerRef} />
-      <FallowCursor open={true}>
-        <p className="h-full w-full whitespace-nowrap rounded-full bg-primary-500/50 p-2 text-foreground">
-          Select an area
-        </p>
-      </FallowCursor>
+      {tooltipText && (
+        <FallowCursor open={true}>
+          <p className="h-full w-full whitespace-nowrap rounded-full bg-primary-500/50 p-2 text-foreground">
+            {tooltipText}
+          </p>
+        </FallowCursor>
+      )}
     </SelectionContext.Provider>
   )
 }

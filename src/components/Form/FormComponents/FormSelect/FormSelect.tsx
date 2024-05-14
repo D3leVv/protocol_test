@@ -1,5 +1,6 @@
-import { Select } from "lib/Select/Select"
-import { SelectProps } from "lib/Select/types"
+"use client"
+import { Select } from "components/Select/Select"
+import { SelectProps } from "components/Select/types"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormSelect = <T extends FieldValues, M extends boolean>(

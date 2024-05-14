@@ -1,5 +1,6 @@
+"use client"
 import classNames from "classnames"
-import { Tooltip } from "lib/Tooltip/Tooltip"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import React, { useEffect, useRef, useState } from "react"
 
 interface Props {
@@ -37,7 +38,7 @@ export const EllipsisWithTooltip = ({ content, style, className, contentId }: Pr
       className={classNames("truncate", className)}
     >
       {content}
-      <Tooltip contentId={contentId} place="top" hidden={!isTruncated} title={content} />
+      <Tooltip contentId={contentId} className={isTruncated ? "visible" : "hidden"} title={content} />
     </div>
   )
 }

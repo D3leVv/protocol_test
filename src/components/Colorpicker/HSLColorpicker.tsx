@@ -1,4 +1,5 @@
-import { Select } from "lib/Select/Select"
+"use client"
+import { Select } from "components/Select/Select"
 import { ColorFormatEnum } from "./types"
 
 type HSLColorPickerProps = {

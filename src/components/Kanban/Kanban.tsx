@@ -1,8 +1,8 @@
-import { Scrollbar } from "lib/Scrollbar/Scrollbar"
-import { Children, ReactNode } from "react"
-import { KanbanColumn } from "./components/KanbanColumn"
-import { KanbanItem } from "./components/KanbanItem"
-import { KanbanItems } from "./components/KanbanItems"
+import { Scrollbar } from 'components/Scrollbar/Scrollbar'
+import { Children, ReactNode } from 'react'
+import { KanbanColumn } from './components/KanbanColumn'
+import { KanbanItem } from './components/KanbanItem'
+import { KanbanItems } from './components/KanbanItems'
 
 const MAX_COL_SIZE = 280
 
@@ -19,7 +19,7 @@ export const Kanban = ({ children }: KanbanProps) => {
     >
       <div
         style={{
-          display: "grid",
+          display: 'grid',
           gridTemplateColumns: `repeat(${columns}, minmax(${MAX_COL_SIZE}px, 1fr))`,
         }}
         className={`h-full gap-6`}

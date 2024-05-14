@@ -1,6 +1,7 @@
+"use client"
 import { TableCellsIcon } from "@heroicons/react/24/outline"
 import { Table } from "@tanstack/react-table"
-import { Menu } from "lib/Menu/Menu"
+import { Menu } from "components/Menu/Menu"
 
 export const DataTableTableViewOptions = <TData,>({ table }: { table: Table<TData> }) => {
   return (

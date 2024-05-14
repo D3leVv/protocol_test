@@ -1,3 +1,4 @@
+"use client"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -14,7 +15,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import classNames from "classnames"
-import { Table } from "lib/Table/Table"
+import { Table } from "components/Table/Table"
 import { useMemo, useState } from "react"
 
 const TABLE_MIN_WIDTH = 1130

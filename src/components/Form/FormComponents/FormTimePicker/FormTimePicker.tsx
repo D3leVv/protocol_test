@@ -1,5 +1,6 @@
-import { CustomErrorMessage } from "lib/Form/FormComponents/CustomErrorMessage"
-import { TimePicker, TimePickerProps } from "lib/TimePicker/TimePicker"
+"use client"
+import { CustomErrorMessage } from "components/Form/FormComponents/CustomErrorMessage"
+import { TimePicker, TimePickerProps } from "components/TimePicker/TimePicker"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormTimePicker = <T extends FieldValues>(props: UseControllerProps<T> & TimePickerProps) => {

@@ -1,15 +1,14 @@
-import { Checkbox, CheckboxProps } from "lib/Checkbox/Checkbox"
-import { FieldError } from "lib/Form/Form"
-import { useId } from "react-aria"
+"use client"
+import { Checkbox, CheckboxProps } from "components/Checkbox/Checkbox"
+import { FieldError } from "components/Form/Form"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormCheckbox = <T extends FieldValues>(props: UseControllerProps<T> & CheckboxProps) => {
-  const { className, children, onChange, defaultValue, ...rest } = props
+  const { className, children, id, onChange, defaultValue, ...rest } = props
   const {
     field,
     fieldState: { error },
   } = useController({ ...rest, defaultValue })
-  const id = useId(props.id)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target

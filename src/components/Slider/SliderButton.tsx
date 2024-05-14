@@ -1,5 +1,6 @@
-import { Button, ButtonProps } from "lib/Button/Button"
-import { Tooltip } from "lib/Tooltip/Tooltip"
+"use client"
+import { Button, ButtonProps } from "components/Button/Button"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import React from "react"
 import { useSliderContext } from "./context"
 

@@ -1,3 +1,4 @@
+"use client"
 import { ReactNode } from "react"
 import { Tooltip as CustomTooltip, ITooltip } from "react-tooltip"
 

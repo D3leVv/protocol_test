@@ -1,3 +1,4 @@
+"use client"
 import { forwardRef, InputHTMLAttributes, Ref } from "react"
 
 type TimePickerInputProps = {

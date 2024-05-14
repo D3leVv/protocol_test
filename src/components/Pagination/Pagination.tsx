@@ -1,3 +1,4 @@
+"use client"
 import classNames from "classnames"
 import { AnimatePresence, Variants, motion } from "framer-motion"
 import { wrap } from "popmotion"

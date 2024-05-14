@@ -1,4 +1,5 @@
 // TODO: break down components, context, and types into separate files. Move hook to hooks folder. See calendar component for example.
+"use client"
 import { Dialog, Transition, TransitionChildProps } from "@headlessui/react"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import classNames from "classnames"

@@ -1,7 +1,8 @@
-import classNames from "classnames"
-import { format, isSameDay, isSameMonth, isToday } from "date-fns"
-import { Dispatch, SetStateAction } from "react"
-import { dateFormatStandard } from "utils"
+'use client'
+import classNames from 'classnames'
+import { format, isSameDay, isSameMonth, isToday } from 'date-fns'
+import { Dispatch, SetStateAction } from 'react'
+import { dateFormatStandard } from 'utils'
 
 type CalendarCellProps = {
   day: Date
@@ -40,24 +41,26 @@ export const CalendarCell = ({
       }}
       type="button"
       className={classNames(
-        !isValidDate(day) && "cursor-default opacity-60 hover:bg-transparent",
-        isSameDay(day, focusDate) && "border border-primary-500",
-        !isSameDay(day, value || today) && isToday(day) && "text-primary-500",
+        !isValidDate(day) && 'cursor-default opacity-60 hover:bg-transparent',
+        isSameDay(day, focusDate) && 'border border-primary-500',
+        !isSameDay(day, value || today) && isToday(day) && 'text-primary-500',
         !isSameDay(day, value || today) &&
           !isToday(day) &&
           isSameMonth(day, firstDayCurrentMonth) &&
-          "text-foreground hover:bg-primary-200",
+          'text-foreground hover:bg-primary-200',
         !isSameDay(day, value || today) &&
           !isToday(day) &&
           !isSameMonth(day, firstDayCurrentMonth) &&
-          "text-secondary-400",
+          'text-secondary-400',
         // isSameDay(day, value || today) && isToday(day) && "bg-green-500",
-        value && isSameDay(day, value) && "bg-primary-500 text-white hover:bg-primary-700",
-        (isSameDay(day, value || today) || isToday(day)) && "font-semibold",
-        `mx-auto flex h-8 w-8 items-center justify-center rounded-[4px] p-1 text-body2/regular focus:outline-none`
+        value &&
+          isSameDay(day, value) &&
+          'bg-primary-500 text-white hover:bg-primary-700',
+        (isSameDay(day, value || today) || isToday(day)) && 'font-semibold',
+        `text-body2/regular mx-auto flex h-8 w-8 items-center justify-center rounded-[4px] p-1 focus:outline-none`,
       )}
     >
-      <time dateTime={dateFormatStandard(day)}>{format(day, "d")}</time>
+      <time dateTime={dateFormatStandard(day)}>{format(day, 'd')}</time>
     </button>
   )
 }

@@ -1,5 +1,6 @@
+"use client"
 import { EllipsisVerticalIcon, PaperClipIcon } from "@heroicons/react/24/outline"
-import { Menu } from "lib/Menu/Menu"
+import { Menu } from "components/Menu/Menu"
 
 export interface UploadedProps {
   fileName: string

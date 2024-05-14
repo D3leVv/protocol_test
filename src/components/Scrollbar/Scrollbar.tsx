@@ -1,3 +1,4 @@
+"use client"
 import cn from "classnames"
 import { motion, useMotionValue } from "framer-motion"
 import React, { PropsWithChildren, useLayoutEffect, useRef, useState } from "react"

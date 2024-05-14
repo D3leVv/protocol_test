@@ -1,5 +1,6 @@
-import { MaxMinType, TimeColumn } from "lib/TimePicker/TimePicker"
-import { TimePickerInput } from "lib/TimePicker/TimePickerInput"
+"use client"
+import { MaxMinType, TimeColumn } from "components/TimePicker/TimePicker"
+import { TimePickerInput } from "components/TimePicker/TimePickerInput"
 import { MutableRefObject, useCallback, useRef } from "react"
 
 type TimePickerInputsProps = {

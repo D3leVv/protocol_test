@@ -1,10 +1,11 @@
+"use client"
 import { Popover } from "@headlessui/react"
 import { ClockIcon } from "@heroicons/react/24/outline"
 import classNames from "classnames"
+import { Label } from "components/Label/Label"
+import { TimePickerInputs } from "components/TimePicker/TimePickerInputs"
+import { TimePickerPanel } from "components/TimePicker/TimePickerPanel"
 import { useCustomPopper } from "hooks/popper"
-import { Label } from "lib/Label/Label"
-import { TimePickerInputs } from "lib/TimePicker/TimePickerInputs"
-import { TimePickerPanel } from "lib/TimePicker/TimePickerPanel"
 import { ReactNode, useCallback, useRef, useState } from "react"
 
 export enum TimeColumn {

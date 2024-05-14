@@ -1,4 +1,5 @@
-import { Textarea, TextareaProps } from "lib/Textarea/Textarea"
+"use client"
+import { Textarea, TextareaProps } from "components/Textarea/Textarea"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormTextArea = <T extends FieldValues>(props: UseControllerProps<T> & TextareaProps) => {

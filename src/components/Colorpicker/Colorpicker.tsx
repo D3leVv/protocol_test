@@ -1,10 +1,11 @@
+"use client"
 import { Popover } from "@headlessui/react"
 import { EyeDropperIcon, TrashIcon } from "@heroicons/react/24/outline"
+import { Placeholder } from "components/Placeholder/Placeholder"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { AnimatePresence } from "framer-motion"
 import hexRgb from "hex-rgb"
 import { useCustomPopper } from "hooks/popper"
-import { Placeholder } from "lib/Placeholder/Placeholder"
-import { Tooltip } from "lib/Tooltip/Tooltip"
 import { HexAlphaColorPicker } from "react-colorful"
 import { InputField } from "../InputField/InputField"
 import { HSLColorPicker } from "./HSLColorpicker"
@@ -58,7 +59,7 @@ export const Colorpicker = ({ onChange, id, tooltipText, placeholder, color = "#
               ref={setReferenceElement}
               role="button"
               aria-label="pick color"
-              className="sm:text-sm relative flex h-[38px] w-full cursor-default items-center justify-between rounded-md border border-secondary-300 bg-background px-3 py-1 text-left shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+              className="relative flex h-[38px] w-full cursor-default items-center justify-between rounded-md border border-secondary-300 bg-background px-3 py-1 text-left shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 sm:text-sm"
             >
               {currColor ? (
                 <span
@@ -101,7 +102,7 @@ export const Colorpicker = ({ onChange, id, tooltipText, placeholder, color = "#
                   role="region"
                   aria-label="color picker"
                   static
-                  className="text-base absolute z-10 flex max-h-[400px] w-full max-w-[264px] flex-col items-center justify-center gap-4 overflow-hidden rounded-md border border-secondary-100 bg-background px-0 py-4 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="absolute z-10 flex max-h-[400px] w-full max-w-[264px] flex-col items-center justify-center gap-4 overflow-hidden rounded-md border border-secondary-100 bg-background px-0 py-4 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <section className="flex w-full items-center justify-center gap-y-2">
                     <HexAlphaColorPicker

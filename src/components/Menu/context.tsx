@@ -1,3 +1,4 @@
+"use client"
 import { UseCustomPopperReturnType } from "hooks/popper"
 import { ReactNode, createContext, useContext } from "react"
 

@@ -1,4 +1,4 @@
-import { StatusEnum } from "lib/Status/Status"
+import { StatusEnum } from 'components/Status/Status'
 
 export interface Meeting {
   id: string | number

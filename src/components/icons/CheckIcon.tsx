@@ -1,17 +1,6 @@
-export function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 20 20" aria-hidden="true" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M10 1.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17Z"
-      />
-      <path
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m7.5 10.5 2 2c1-3.5 3-5 3-5"
-      />
-    </svg>
-  )
-}
+export const CheckedIcon = ({ className }: { className?: string }) => (
+  <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="white" />
+    <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" stroke="#D7D9DE" />
+  </svg>
+)

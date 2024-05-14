@@ -1,11 +1,14 @@
+"use client"
 import { Combobox } from "@headlessui/react"
 import { Placement } from "@popperjs/core"
 import classNames from "classnames"
+import { CustomErrorMessage } from "components/Form/FormComponents/CustomErrorMessage"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { useCustomPopper } from "hooks/popper"
-import { CustomErrorMessage } from "lib/Form/FormComponents/CustomErrorMessage"
-import { Tooltip } from "lib/Tooltip/Tooltip"
 import React, { Children, cloneElement, isValidElement } from "react"
 import { FieldError } from "react-hook-form"
+import { EnsureArray } from "types/generalTypes"
+import { NoInfer } from "../../../types"
 import { ComboBoxInput } from "./ComboBoxInput"
 import { ComboBoxInputWrapper } from "./ComboBoxInputWrapper"
 import { ComboBoxLabel } from "./ComboBoxLabel"
@@ -26,7 +29,7 @@ export type ComboBoxProps<T> = {
   name?: string
   error?: FieldError
   tooltip?: string
-  onChange?(value: T | T[]): void
+  onChange?(value: NoInfer<T> | EnsureArray<NoInfer<T>> | null): void
 }
 
 export const ComboBox = <T,>(props: ComboBoxProps<T>) => {

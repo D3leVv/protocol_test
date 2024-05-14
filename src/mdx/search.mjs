@@ -1,24 +1,21 @@
-import { slugifyWithCounter } from '@sindresorhus/slugify'
-import glob from 'fast-glob'
-import * as fs from 'fs'
-import { toString } from 'mdast-util-to-string'
-import * as path from 'path'
-import { remark } from 'remark'
-import remarkMdx from 'remark-mdx'
-import { createLoader } from 'simple-functional-loader'
-import { filter } from 'unist-util-filter'
-import { SKIP, visit } from 'unist-util-visit'
-import * as url from 'url'
+import { slugifyWithCounter } from "@sindresorhus/slugify"
+import glob from "fast-glob"
+import * as fs from "fs"
+import { toString } from "mdast-util-to-string"
+import * as path from "path"
+import { remark } from "remark"
+import remarkMdx from "remark-mdx"
+import { createLoader } from "simple-functional-loader"
+import { filter } from "unist-util-filter"
+import { SKIP, visit } from "unist-util-visit"
+import * as url from "url"
 
 const __filename = url.fileURLToPath(import.meta.url)
 const processor = remark().use(remarkMdx).use(extractSections)
 const slugify = slugifyWithCounter()
 
 function isObjectExpression(node) {
-  return (
-    node.type === 'mdxTextExpression' &&
-    node.data?.estree?.body?.[0]?.expression?.type === 'ObjectExpression'
-  )
+  return node.type === "mdxTextExpression" && node.data?.estree?.body?.[0]?.expression?.type === "ObjectExpression"
 }
 
 function excludeObjectExpressions(tree) {
@@ -30,9 +27,9 @@ function extractSections() {
     slugify.reset()
 
     visit(tree, (node) => {
-      if (node.type === 'heading' || node.type === 'paragraph') {
+      if (node.type === "heading" || node.type === "paragraph") {
         let content = toString(excludeObjectExpressions(node))
-        if (node.type === 'heading' && node.depth <= 2) {
+        if (node.type === "heading" && node.depth <= 2) {
           let hash = node.depth === 1 ? null : slugify(content)
           sections.push([content, hash, []])
         } else {
@@ -53,13 +50,13 @@ export default function Search(nextConfig = {}) {
         test: __filename,
         use: [
           createLoader(function () {
-            let appDir = path.resolve('./src/app')
+            let appDir = path.resolve("./src/app")
             this.addContextDependency(appDir)
 
-            let files = glob.sync('**/*.mdx', { cwd: appDir })
+            let files = glob.sync("**/*.mdx", { cwd: appDir })
             let data = files.map((file) => {
-              let url = '/' + file.replace(/(^|\/)page\.mdx$/, '')
-              let mdx = fs.readFileSync(path.join(appDir, file), 'utf8')
+              let url = "/" + file.replace(/(^|\/)page\.mdx$/, "")
+              let mdx = fs.readFileSync(path.join(appDir, file), "utf8")
 
               let sections = []
 
@@ -125,7 +122,7 @@ export default function Search(nextConfig = {}) {
         ],
       })
 
-      if (typeof nextConfig.webpack === 'function') {
+      if (typeof nextConfig.webpack === "function") {
         return nextConfig.webpack(config, options)
       }
 

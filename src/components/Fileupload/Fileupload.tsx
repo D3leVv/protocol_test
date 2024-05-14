@@ -1,5 +1,6 @@
+"use client"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { motion } from "framer-motion"
-import { Tooltip } from "lib/Tooltip/Tooltip"
 import React, { useCallback, useRef, useState } from "react"
 
 import { DocumentArrowUpIcon } from "@heroicons/react/24/outline"
@@ -71,7 +72,7 @@ export const Fileupload = ({ tooltipPosition, tooltipText, onUpload, multiple }:
           role="document"
           aria-label="Drag and drop area"
           className={classNames(
-            "animate-color relative flex cursor-pointer flex-col items-center justify-center gap-1 rounded-md border-2 border-dashed border-secondary-100 p-6 text-body2/regular text-foreground outline-none duration-150 target:border-primary-500 focus-within:border-blue-500 hover:border-primary-500 focus:border-blue-500 focus-visible:border-blue-500 focus-visible:!outline-none active:border-blue-500",
+            "animate-color text-body2/regular relative flex cursor-pointer flex-col items-center justify-center gap-1 rounded-md border-2 border-dashed border-secondary-100 p-6 text-foreground outline-none duration-150 target:border-primary-500 focus-within:border-blue-500 hover:border-primary-500 focus:border-blue-500 focus-visible:border-blue-500 focus-visible:!outline-none active:border-blue-500",
 
             isDragging ? " border-primary-500" : "border-secondary-100"
           )}

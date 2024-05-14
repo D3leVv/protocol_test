@@ -1,5 +1,6 @@
+"use client"
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline"
-import { InputField, InputFieldProps } from "lib/InputField/InputField"
+import { InputField, InputFieldProps } from "components/InputField/InputField"
 import { useState } from "react"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 

@@ -1,16 +1,17 @@
-import { Listbox } from "@headlessui/react"
+"use client"
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react"
 import { CheckIcon } from "@heroicons/react/24/outline"
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid"
 import classNames from "classnames"
+import { CustomErrorMessage } from "components/Form/FormComponents/CustomErrorMessage"
+import { mapIcons } from "components/InputField/InputField"
+import { Label as CustomLabel } from "components/Label/Label"
+import { Placeholder } from "components/Placeholder/Placeholder"
+import { TagButtonTemplate } from "components/TagButtonTemplate/TagButtonTemplate"
+import { CheckedIcon } from "components/icons/CheckIcon"
+import { UncheckedIcon } from "components/icons/UncheckIcon"
 import { AnimatePresence, motion } from "framer-motion"
 import { useCustomPopper } from "hooks/popper"
-import { CustomErrorMessage } from "lib/Form/FormComponents/CustomErrorMessage"
-import { CheckedIcon } from "lib/Icons/CheckIcon"
-import { UncheckedIcon } from "lib/Icons/UncheckIcon"
-import { mapIcons } from "lib/InputField/InputField"
-import { Label as CustomLabel } from "lib/Label/Label"
-import { Placeholder } from "lib/Placeholder/Placeholder"
-import { TagButtonTemplate } from "lib/TagButtonTemplate/TagButtonTemplate"
 import { ReactNode } from "react"
 import { SelectProps } from "./types"
 
@@ -43,7 +44,7 @@ export const Select = <T, M extends boolean>({
         <>
           {val
             .map((v) => (
-              <Listbox.Option
+              <ListboxOption
                 as={TagButtonTemplate}
                 onClick={(e: any) => e.stopPropagation()}
                 value={v}
@@ -51,7 +52,7 @@ export const Select = <T, M extends boolean>({
                 key={keyName && v[keyName] ? (v[keyName] as any) : v}
               >
                 <span className="overflow-hidden">{renderProp(v)}</span>
-              </Listbox.Option>
+              </ListboxOption>
             ))
             .splice(0, 3)}
           {val.length > 3 ? <span className="">+ {val.length - 3}</span> : null}
@@ -73,12 +74,12 @@ export const Select = <T, M extends boolean>({
       {({ open }) => (
         <>
           <Listbox.Label as={CustomLabel} label={label} id={id} required={required} />
-          <Listbox.Button
+          <ListboxButton
             id={id}
             ref={setReferenceElement}
             className={({ value }) =>
               classNames(
-                "relative inline-flex min-h-[40px] w-full items-center truncate rounded-md border border-secondary-300 bg-background px-3 py-2 pr-10 text-body2/regular text-foreground ui-open:border-primary-500 focus:outline-primary-500 focus:invalid:outline-red-500 disabled:cursor-not-allowed disabled:bg-secondary-300/60 disabled:!text-opacity-50 disabled:opacity-50",
+                "text-body2/regular relative inline-flex min-h-[40px] w-full items-center truncate rounded-md border border-secondary-300 bg-background px-3 py-2 pr-10 text-foreground focus:outline-primary-500 focus:invalid:outline-red-500 disabled:cursor-not-allowed disabled:bg-secondary-300/60 disabled:!text-opacity-50 disabled:opacity-50 ui-open:border-primary-500",
                 error && "!border-red-500 focus:!outline-red-500",
                 multiple && value && "!py-1"
               )
@@ -102,11 +103,11 @@ export const Select = <T, M extends boolean>({
                 <ChevronUpIcon className="absolute right-2 hidden h-4 w-4 ui-open:block" />
               </>
             )}
-          </Listbox.Button>
+          </ListboxButton>
 
           <AnimatePresence>
             {open && (
-              <Listbox.Options
+              <ListboxOptions
                 static
                 as={motion.ul}
                 ref={setPopperElement}
@@ -130,7 +131,7 @@ export const Select = <T, M extends boolean>({
                     {renderProp(option)}
                   </Option>
                 )) ?? <div>No options</div>}
-              </Listbox.Options>
+              </ListboxOptions>
             )}
           </AnimatePresence>
           <CustomErrorMessage errorMessage={error} id={id} />
@@ -154,7 +155,7 @@ const Option = <T,>({
   icon?: ReactNode
 }) => {
   return (
-    <Listbox.Option
+    <ListboxOption
       disabled={disabled}
       className={classNames(
         "inline-flex w-full cursor-pointer items-center justify-between gap-x-3 rounded-md px-3 py-2 text-left text-foreground ui-selected:bg-primary-500 ui-selected:text-white ui-active:bg-primary-500 ui-active:text-white ui-disabled:cursor-not-allowed ui-disabled:text-gray-300"
@@ -173,7 +174,7 @@ const Option = <T,>({
       </div>
 
       <CheckIcon className="text-white-500 h-5 w-5 opacity-0 ui-selected:opacity-100" />
-    </Listbox.Option>
+    </ListboxOption>
   )
 }
 export const isDisabled = <T,>(option: T, disabledOptions: T[], keyName?: keyof T) => {

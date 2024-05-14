@@ -1,4 +1,5 @@
-import { useModal } from "lib/Modal/Modal"
+"use client"
+import { useModal } from "components/Modal/Modal"
 import React from "react"
 import { SliderButton } from "./SliderButton"
 import { SliderPanel } from "./SliderPanel"

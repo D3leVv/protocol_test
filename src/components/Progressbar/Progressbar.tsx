@@ -1,5 +1,6 @@
+"use client"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { motion, Variants } from "framer-motion"
-import { Tooltip } from "lib/Tooltip/Tooltip"
 
 export interface ProgressbarProps {
   tooltipText?: string

@@ -1,8 +1,8 @@
 "use client"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import { Table } from "@tanstack/react-table"
-import { Button } from "lib/Button/Button"
-import { InputField } from "lib/InputField/InputField"
+import { Button } from "components/Button/Button"
+import { InputField } from "components/InputField/InputField"
 import { DataTableTableViewOptions } from "./DataTableViewOptions"
 
 interface DataTableToolbarProps<TData> {

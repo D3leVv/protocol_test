@@ -1,11 +1,11 @@
+"use client"
 import classNames from "classnames"
+import { FieldError } from "components/Form/Form"
+import { Label } from "components/Label/Label"
+import { Tooltip } from "components/Tooltip/Tooltip"
 
 import React, { InputHTMLAttributes } from "react"
-
-import { containerClasses, inputClasses } from "../../utils"
-import { FieldError } from "../Form/Form"
-import { Label } from "../Label/Label"
-import { Tooltip } from "../Tooltip/Tooltip"
+import { containerClasses, inputClasses } from "utils"
 
 export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string | React.ReactNode

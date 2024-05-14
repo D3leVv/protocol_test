@@ -1,4 +1,4 @@
-import { Tab } from "@headlessui/react"
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react"
 import classNames from "classnames"
 import React, { PropsWithChildren } from "react"
 
@@ -33,25 +33,25 @@ export const Tabs = ({ items, variant = "variant1", className }: TabsProps) => {
 
   return (
     <div className="px-2 sm:px-0">
-      <Tab.Group>
-        <Tab.List className={tabsWrapper}>
+      <TabGroup>
+        <TabList className={tabsWrapper}>
           {items.map((tab, i) => (
             <Tab disabled={tab.disabled} key={i} className={variants}>
               {tab.label}
             </Tab>
           ))}
-        </Tab.List>
-        <Tab.Panels className="mt-6 ">
+        </TabList>
+        <TabPanels className="mt-6 ">
           {items.map((tab, idx) => (
-            <Tab.Panel
+            <TabPanel
               key={idx}
               className={classNames("rounded-xl bg-background p-3", "focus:outline-none  ", className)}
             >
               {tab.content}
-            </Tab.Panel>
+            </TabPanel>
           ))}
-        </Tab.Panels>
-      </Tab.Group>
+        </TabPanels>
+      </TabGroup>
     </div>
   )
 }

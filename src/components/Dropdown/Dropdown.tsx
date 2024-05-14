@@ -1,16 +1,17 @@
-import { Combobox } from "@headlessui/react"
+"use client"
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react"
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline"
 import classNames from "classnames"
+import { DropdownProps } from "components/Dropdown/types"
+import { CustomErrorMessage } from "components/Form/FormComponents/CustomErrorMessage"
+import { CheckedIcon } from "components/icons/CheckIcon"
+import { UncheckedIcon } from "components/icons/UncheckIcon"
+import { InputField, mapIcons } from "components/InputField/InputField"
+import { Label } from "components/Label/Label"
+import { isDisabled } from "components/Select/Select"
+import { TagButtonTemplate } from "components/TagButtonTemplate/TagButtonTemplate"
 import { AnimatePresence, motion } from "framer-motion"
 import { useCustomPopper } from "hooks/popper"
-import { DropdownProps } from "lib/Dropdown/types"
-import { CustomErrorMessage } from "lib/Form/FormComponents/CustomErrorMessage"
-import { CheckedIcon } from "lib/Icons/CheckIcon"
-import { UncheckedIcon } from "lib/Icons/UncheckIcon"
-import { InputField, mapIcons } from "lib/InputField/InputField"
-import { Label } from "lib/Label/Label"
-import { isDisabled } from "lib/Select/Select"
-import { TagButtonTemplate } from "lib/TagButtonTemplate/TagButtonTemplate"
 import { ReactNode, useState } from "react"
 
 export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
@@ -51,7 +52,7 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
         <>
           {val
             .map((v) => (
-              <Combobox.Option
+              <ComboboxOption
                 as={TagButtonTemplate}
                 onClick={(e: any) => e.stopPropagation()}
                 value={v}
@@ -59,7 +60,7 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
                 key={keyName && v[keyName] ? (v[keyName] as any) : v}
               >
                 <span className="overflow-hidden">{renderProp(v)}</span>
-              </Combobox.Option>
+              </ComboboxOption>
             ))
             .splice(0, 3)}
           {val.length > 3 ? <span className="">+ {val.length - 3}</span> : null}
@@ -73,12 +74,12 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
       as="div"
       by={(a, b) =>
         keyName && a && b && !Array.isArray(a) && !Array.isArray(b) && typeof a === "object" && typeof b === "object"
-          ? a[keyName] === b[keyName]
+          ? a[keyName as keyof typeof a] === b[keyName as keyof typeof b]
           : a === b
       }
       className="relative h-full w-full"
-      onChange={onChange as any}
-      multiple={multiple as any}
+      onChange={onChange}
+      multiple={multiple}
       value={value}
       {...rest}
     >
@@ -87,7 +88,7 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
           <Combobox.Label as={Label} id={rest.id + "-input"} label={label} />
           {!multiple ? (
             <>
-              <Combobox.Input
+              <ComboboxInput
                 autoComplete="off"
                 prefixIcon={prefixIcons}
                 suffixIcon={[
@@ -107,13 +108,13 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
               />
             </>
           ) : (
-            <Combobox.Button
+            <ComboboxButton
               as="div"
               ref={setReferenceElement}
               onClick={(e) => e.preventDefault()}
               className={({ value }) =>
                 classNames(
-                  "relative inline-flex min-h-[38px] w-full flex-grow-0 items-center truncate rounded-md border border-secondary-300 bg-background px-3 py-2 text-body2/regular text-foreground ui-open:border-primary-500 focus:outline-primary-500 focus:invalid:outline-red-500 disabled:cursor-not-allowed disabled:bg-secondary-300/60 disabled:!text-opacity-50 disabled:opacity-50",
+                  "text-body2/regular relative inline-flex min-h-[38px] w-full flex-grow-0 items-center truncate rounded-md border border-secondary-300 bg-background px-3 py-2 text-foreground focus:outline-primary-500 focus:invalid:outline-red-500 disabled:cursor-not-allowed disabled:bg-secondary-300/60 disabled:!text-opacity-50 disabled:opacity-50 ui-open:border-primary-500",
                   error && "!border-red-500 focus:!outline-red-500",
                   multiple && value && "!py-1"
                 )
@@ -133,7 +134,7 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
                         {renderTemplate(value)}
                       </div>
                     )}
-                    <Combobox.Input
+                    <ComboboxInput
                       placeholder={!value ? placeholder : undefined}
                       autoComplete="off"
                       displayValue={(value: T) => renderProp(value)}
@@ -148,17 +149,17 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
                   {suffixIcons && (
                     <div className="absolute inset-y-0 right-8 flex items-center gap-3 ">{mapIcons(suffixIcons)}</div>
                   )}
-                  <Combobox.Button className="absolute right-[13px] h-4 w-4 ">
+                  <ComboboxButton className="absolute right-[13px] h-4 w-4 ">
                     <ChevronDownIcon className="ui-open:hidden" />
                     <ChevronUpIcon className="hidden ui-open:block" />
-                  </Combobox.Button>
+                  </ComboboxButton>
                 </>
               )}
-            </Combobox.Button>
+            </ComboboxButton>
           )}
           <AnimatePresence>
             {open && (
-              <Combobox.Options
+              <ComboboxOptions
                 static
                 as={motion.ul}
                 ref={setPopperElement}
@@ -185,7 +186,7 @@ export const Dropdown = <T, M extends boolean>(props: DropdownProps<T, M>) => {
                     {renderProp(option)}
                   </Option>
                 )) ?? <div>No options</div>}
-              </Combobox.Options>
+              </ComboboxOptions>
             )}
           </AnimatePresence>
           <CustomErrorMessage errorMessage={error} id={rest.id} />
@@ -208,7 +209,7 @@ const Option = <T,>({
   icon?: ReactNode
 }) => {
   return (
-    <Combobox.Option
+    <ComboboxOption
       disabled={disabled}
       className={classNames(
         "inline-flex w-full cursor-pointer items-center justify-between gap-x-3 rounded-md px-3 py-2 text-left text-foreground ui-selected:bg-primary-500 ui-selected:text-white ui-active:bg-primary-600 ui-active:text-white ui-disabled:cursor-not-allowed ui-disabled:text-gray-300"
@@ -227,6 +228,6 @@ const Option = <T,>({
       </div>
 
       <CheckIcon className="text-white-500 h-5 w-5 opacity-0 ui-selected:opacity-100" />
-    </Combobox.Option>
+    </ComboboxOption>
   )
 }

@@ -1,14 +1,16 @@
+"use client"
+
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import classNames from "classnames"
-import { ButtonProps } from "lib/Button/Button"
+import { ButtonProps } from "components/Button/Button"
 import {
   BUTTON_BASE_CLASSES,
   BUTTON_IMPACT_CLASSES,
   BUTTON_SHAPE_CLASSES,
   BUTTON_SIZE_CLASSES,
-} from "lib/Button/constants"
-import { mapIcons } from "lib/InputField/InputField"
-import { Tooltip } from "lib/Tooltip/Tooltip"
+} from "components/Button/constants"
+import { mapIcons } from "components/InputField/InputField"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { forwardRef } from "react"
 
 export type TagButtonTemplateProps = Omit<ButtonProps<"div">, "onClick"> & {
@@ -40,7 +42,7 @@ export const TagButtonTemplate = forwardRef(
         BUTTON_SIZE_CLASSES[size],
         BUTTON_IMPACT_CLASSES[variant][impact],
         BUTTON_SHAPE_CLASSES.rounded,
-        "relative !flex !w-auto !gap-1 py-1 !pl-3 pr-7 !text-body2/regular !ring-0 ",
+        "!text-body2/regular relative !flex !w-auto !gap-1 py-1 !pl-3 pr-7 !ring-0 ",
         className
       )}
       onClick={onClick}

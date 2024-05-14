@@ -1,3 +1,4 @@
+"use client"
 import Color from "color"
 import { useState } from "react"
 import { RgbaColor } from "react-colorful"

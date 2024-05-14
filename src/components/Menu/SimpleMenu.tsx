@@ -1,10 +1,13 @@
-import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/outline"
-import { Menu } from "lib/Menu/Menu"
+"use client"
+import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/24/outline'
+import { Menu } from 'components/Menu/Menu'
 
 export function MenuDemo() {
   return (
     <Menu>
-      <Menu.Button prefixIcon={[<ArrowUpIcon />, <ArrowDownIcon />]}>Open</Menu.Button>
+      <Menu.Button prefixIcon={[<ArrowUpIcon />, <ArrowDownIcon />]}>
+        Open
+      </Menu.Button>
       <Menu.Content>
         <Menu.Label>My Account</Menu.Label>
         <Menu.Separator />

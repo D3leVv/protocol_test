@@ -1,30 +1,25 @@
-import { type Metadata } from 'next'
-import glob from 'fast-glob'
+import glob from "fast-glob"
+import { type Metadata } from "next"
 
-import { Providers } from '@/app/providers'
-import { Layout } from '@/components/Layout'
-import { type Section } from '@/components/SectionProvider'
-
-import '@/styles/tailwind.css'
+import { Providers } from "app/providers"
+import { type Section } from "components/SectionProvider/SectionProvider"
+import { Layout } from "components/layouts/Layout"
+import "styles/tailwind.css"
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Protocol API Reference',
-    default: 'Protocol API Reference',
+    template: "%s - Protocol API Reference",
+    default: "Protocol API Reference",
   },
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  let pages = await glob('**/*.mdx', { cwd: 'src/app' })
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  let pages = await glob("**/*.mdx", { cwd: "src/app" })
   let allSectionsEntries = (await Promise.all(
     pages.map(async (filename) => [
-      '/' + filename.replace(/(^|\/)page\.mdx$/, ''),
+      "/" + filename.replace(/(^|\/)page\.mdx$/, ""),
       (await import(`./${filename}`)).sections,
-    ]),
+    ])
   )) as Array<[string, Array<Section>]>
   let allSections = Object.fromEntries(allSectionsEntries)
 

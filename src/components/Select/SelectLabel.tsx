@@ -1,4 +1,6 @@
-import { Listbox } from "@headlessui/react"
-import { Label as CustomLabel, LabelProps } from "lib/Label/Label"
+import { Listbox } from '@headlessui/react'
+import { Label as CustomLabel, LabelProps } from 'components/Label/Label'
 
-export const SelectLabel = (props: LabelProps) => <Listbox.Label as={CustomLabel} {...props} />
+export const SelectLabel = (props: LabelProps) => (
+  <Listbox.Label as={CustomLabel} {...props} />
+)

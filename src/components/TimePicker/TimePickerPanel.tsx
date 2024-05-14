@@ -1,6 +1,7 @@
+"use client"
 import { Popover } from "@headlessui/react"
 import classNames from "classnames"
-import { TimePickerButton } from "lib/TimePicker/TimePickerButton"
+import { TimePickerButton } from "components/TimePicker/TimePickerButton"
 import { useCallback, useRef } from "react"
 
 type TimePickerPanelProps = {
@@ -104,7 +105,7 @@ export const TimePickerPanel = ({
             ...styles,
           }}
           className={classNames(
-            "text-base absolute z-50 inline-flex h-full max-h-[286px] w-auto justify-between  gap-x-4 rounded-md border border-secondary-100 bg-background shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "
+            "absolute z-50 inline-flex h-full max-h-[286px] w-auto justify-between gap-x-4  rounded-md border border-secondary-100 bg-background text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "
           )}
         >
           <div

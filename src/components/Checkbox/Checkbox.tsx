@@ -1,6 +1,6 @@
+"use client"
 import { default as classNames, default as cn } from "classnames"
 import React, { InputHTMLAttributes, ReactNode } from "react"
-import { useId } from "react-aria"
 
 export type CheckboxProps = {
   explanationText?: string
@@ -11,8 +11,7 @@ export type CheckboxProps = {
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ explanationText, wrapperClassName, className, label, error, ...rest }, ref) => {
-    const id = useId(rest.id)
+  ({ explanationText, wrapperClassName, className, label, error, id, ...rest }, ref) => {
     return (
       <div className={cn(`flex  ${label ? "items-start" : "items-center"}`, wrapperClassName)} role="checkbox">
         <input
@@ -33,7 +32,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           <label htmlFor={id} className="flex cursor-pointer flex-col justify-center">
             <div
               className={classNames(
-                "ml-2 flex select-none items-center gap-2 text-body2/regular text-foreground first-letter:capitalize",
+                "text-body2/regular ml-2 flex select-none items-center gap-2 text-foreground first-letter:capitalize",
                 error && "text-red-500"
               )}
             >
@@ -41,7 +40,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               {rest.required && <span className="text-red-500">*</span>}
             </div>
             {explanationText && (
-              <span className="ml-2 mt-1 block text-body3/regular text-secondary-500">{explanationText}</span>
+              <span className="text-body3/regular ml-2 mt-1 block text-secondary-500">{explanationText}</span>
             )}
           </label>
         )}

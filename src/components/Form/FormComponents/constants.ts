@@ -1,8 +1,6 @@
-import { removeFromArgsTable } from "utils"
-
 export const defaultArgTypes = {
   label: { control: { type: "text" } },
-  ...removeFromArgsTable(["control", "shouldUnregister", "error", "success", "defaultValue", "rules", "name", "id"]),
+  //   ...removeFromArgsTable(["control", "shouldUnregister", "error", "success", "defaultValue", "rules", "name", "id"]),
 }
 
 export const defaultArgs = {

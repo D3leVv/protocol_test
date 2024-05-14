@@ -1,5 +1,6 @@
-import React, { useContext } from "react"
-import { AccordionContext } from "./context"
+'use client'
+import React, { useContext } from 'react'
+import { AccordionContext } from './context'
 
 interface Props {
   index: number
@@ -17,10 +18,13 @@ export const AccordionButton = ({ index, children, className }: Props) => {
   return (
     <button
       type="button"
-      className={(typeof className === "function" ? className({ isOpen }) : className, "text-foreground")}
+      className={
+        (typeof className === 'function' ? className({ isOpen }) : className,
+        'text-foreground')
+      }
       onClick={() => toggleIndex(index)}
     >
-      {typeof children === "function" ? children({ isOpen }) : children}
+      {typeof children === 'function' ? children({ isOpen }) : children}
     </button>
   )
 }

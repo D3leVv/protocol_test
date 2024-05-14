@@ -1,22 +1,25 @@
-import { Button, ButtonProps } from "lib/Button/Button"
-import { ElementType } from "react"
+'use client'
+import { Button, ButtonProps } from 'components/Button/Button'
+import { ElementType } from 'react'
 
-export function DownloadButton(props: ButtonProps<ElementType> & { fileName: string; url: string }) {
+export function DownloadButton(
+  props: ButtonProps<ElementType> & { fileName: string; url: string },
+) {
   return (
     <Button
       {...props}
       onClick={() => {
         const xhr = new XMLHttpRequest()
-        xhr.responseType = "blob"
+        xhr.responseType = 'blob'
         xhr.onload = function () {
-          const a = document.createElement("a")
+          const a = document.createElement('a')
           a.href = window.URL.createObjectURL(xhr.response)
           a.download = props.fileName
-          a.style.display = "none"
+          a.style.display = 'none'
           document.body.appendChild(a)
           a.click()
         }
-        xhr.open("GET", props.url)
+        xhr.open('GET', props.url)
         xhr.send()
       }}
     >

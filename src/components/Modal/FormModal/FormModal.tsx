@@ -1,6 +1,7 @@
-import { Button, ButtonProps } from "lib/Button/Button"
-import { Form } from "lib/Form/Form"
-import { Modal, ModalProps } from "lib/Modal/Modal"
+"use client"
+import { Button, ButtonProps } from "components/Button/Button"
+import { Form } from "components/Form/Form"
+import { Modal, ModalProps } from "components/Modal/Modal"
 import { ComponentProps, ReactNode } from "react"
 import { FieldValues, SubmitHandler, UseFormReturn } from "react-hook-form"
 

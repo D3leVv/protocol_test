@@ -1,4 +1,5 @@
-import { Calendar, CalendarProps } from "lib/Calendar/Calendar"
+"use client"
+import { Calendar, CalendarProps } from "components/Calendar/Calendar"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
 
 export const FormCalendar = <T extends FieldValues>(

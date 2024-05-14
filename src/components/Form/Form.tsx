@@ -1,4 +1,4 @@
-// function to resolve zod schema we provide
+"use client"
 
 // We will fully type `<Form />` component by providing component props and fwding // those
 import classNames from "classnames"

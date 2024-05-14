@@ -1,4 +1,5 @@
-import { Paper } from "lib/Paper/Paper"
+"use client"
+import { Paper } from "components/Paper/Paper"
 import { Children, ReactNode, Ref, forwardRef } from "react"
 import { getContrastColor } from "utils"
 

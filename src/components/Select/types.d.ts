@@ -1,5 +1,5 @@
 import { Placement } from "@popperjs/core"
-import { LabelProps } from "lib/Label/Label"
+import { LabelProps } from "components/Label/Label"
 export type DefaultSelectProps<T> = {
   poperPlacement?: Placement
   disabled?: boolean

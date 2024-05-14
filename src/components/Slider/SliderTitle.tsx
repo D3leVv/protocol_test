@@ -1,4 +1,5 @@
-import { Modal } from "lib/Modal/Modal"
+"use client"
+import { Modal } from "components/Modal/Modal"
 import { useSliderContext } from "./context"
 
 export const SliderTitle = () => {

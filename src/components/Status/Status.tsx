@@ -1,4 +1,5 @@
-import { Tooltip } from "lib/Tooltip/Tooltip"
+"use client"
+import { Tooltip } from "components/Tooltip/Tooltip"
 import { PropsWithChildren } from "react"
 
 import { CheckIcon, ClockIcon, XMarkIcon } from "@heroicons/react/20/solid"
